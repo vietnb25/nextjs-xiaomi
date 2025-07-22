@@ -75,8 +75,8 @@ a {
     border: none;
     max-width: 500px;
     margin: 0 auto;
-    height: 120vh;
-    max-height: 812px;
+    height: 100vh;
+    max-height: 850;
 }
 
 .game-modal .modal-header {
