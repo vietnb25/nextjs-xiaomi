@@ -1,17 +1,27 @@
-import Image from 'next/image';
-import { Row, Col } from 'react-bootstrap';
-import HeroSection from './component/herosection';
-import ProductInfo from './component/ProducInfo';
-import Features from './component/features';
-import ProductFeatures from './component/ProductFeatures';
+import Header from './components/Header'
+import HeroSection from './components/HeroSection'
+import ProductFeatures from './components/ProductFeatures'
+import GamingSection from './components/GamingSection'
+import PromotionSection from './components/PromotionSection'
+import Footer from './components/Footer'
+import ProductFeatures2 from './components/ProductFeatures2'
+import StoresSection from './components/StoresSection'
+
 export default function Home() {
   return (
-    <div>
-      <HeroSection />
-
-      <ProductInfo />
-      <ProductFeatures />
-    </div>
-
-  );
+    <>
+      <Header />
+      <main>
+        <HeroSection />
+        <ProductFeatures />
+        <ProductFeatures2 />
+        {/* Uncomment the line above to use the alternative ProductFeatures component */}
+        <GamingSection />
+        <PromotionSection />
+        <StoresSection />
+      </main>
+      <Footer />
+    </>
+  )
 }
+

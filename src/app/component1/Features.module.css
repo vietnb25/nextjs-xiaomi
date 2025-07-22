@@ -1,0 +1,39 @@
+.featureSection {
+    background-image: url("/Background2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 40px 0;
+    /* Tăng padding để có khoảng cách trên/dưới */
+}
+
+.containerCustom {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 15px;
+    /* Thêm padding cho container */
+}
+
+.featureBox {
+    background: white;
+    border-radius: 12px;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    /* Đảm bảo ảnh con được căn đúng */
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    /* Giữ tỷ lệ cố định */
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.imageWrapper img {
+    border-radius: 12px;
+    /* Đảm bảo ảnh có bo góc */
+}

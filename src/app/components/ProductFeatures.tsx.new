@@ -1,0 +1,90 @@
+'use client';
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import Image from 'next/image';
+
+export default function ProductFeatures() {
+  return (
+    <section className="py-5 bg-light" id="product-info">
+      <Container>
+        <h2 className="text-center display-4 fw-bold mb-5">
+          Redmi Note 13 Pro+ 5G
+        </h2>
+
+        <Row className="g-4">
+          {/* Top Row - 2 Features */}
+          <Col md={6}>
+            <div className="glassmorphism p-4 h-100">
+              <div className="d-flex justify-content-center">
+                <Image
+                  src="/images/camera-200mp.png"
+                  alt="200MP Camera"
+                  width={460}
+                  height={460}
+                  className="img-fluid"
+                />
+              </div>
+            </div>
+          </Col>
+
+          <Col md={6}>
+            <div className="glassmorphism p-4 h-100">
+              <div className="d-flex justify-content-center">
+                <Image
+                  src="/images/amoled-display.png"
+                  alt="AMOLED Display"
+                  width={460}
+                  height={460}
+                  className="img-fluid"
+                />
+              </div>
+            </div>
+          </Col>
+
+          {/* Bottom Row - 3 Features */}
+          <Col md={4}>
+            <div className="glassmorphism p-4 h-100">
+              <div className="d-flex justify-content-center">
+                <Image
+                  src="/images/design-feature.png"
+                  alt="Design Feature"
+                  width={360}
+                  height={360}
+                  className="img-fluid"
+                />
+              </div>
+            </div>
+          </Col>
+
+          <Col md={4}>
+            <div className="glassmorphism p-4 h-100">
+              <div className="d-flex justify-content-center">
+                <Image
+                  src="/images/fast-charging.png"
+                  alt="Fast Charging"
+                  width={360}
+                  height={360}
+                  className="img-fluid"
+                />
+              </div>
+            </div>
+          </Col>
+
+          <Col md={4}>
+            <div className="glassmorphism p-4 h-100">
+              <div className="d-flex justify-content-center">
+                <Image
+                  src="/images/waterproof-feature.png"
+                  alt="Waterproof Feature"
+                  width={360}
+                  height={360}
+                  className="img-fluid"
+                />
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </section>
+  );
+}

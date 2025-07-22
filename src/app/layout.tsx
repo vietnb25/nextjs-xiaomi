@@ -1,14 +1,18 @@
-'use client'
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Headers from "./component/headers";
+import { Roboto } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./globals.css";
 
+const roboto = Roboto({
+  weight: ['400', '500', '700'],
+  subsets: ['latin', 'vietnamese'],
+  display: 'swap',
+});
 
-
-
-
+export const metadata: Metadata = {
+  title: "Xiaomi Vietnam | Mi Phone | Mi TV | Mi Robot | Mi Smart Device",
+  description: "Trang chủ chính thức của Xiaomi tại Việt Nam. Mua sắm trực tuyến điện thoại Mi, Mi TV, Mi Robot và các thiết bị thông minh khác.",
+};
 
 export default function RootLayout({
   children,
@@ -16,14 +20,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <div className="pt-5"> {/* Thêm padding-top để tránh overlap, điều chỉnh theo chiều cao header */}
-          <Headers />
-          {children}
-          {/* Thêm nội dung khác sau này */}
-        </div>
-
+    <html lang="vi">
+      <body className={roboto.className}>
+        {children}
       </body>
     </html>
   );
