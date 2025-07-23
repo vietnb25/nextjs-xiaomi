@@ -29,25 +29,33 @@ export default function GameRulesModal({ show, onHide, onStart }: GameRulesModal
         </div>
 
         <ol className="game-rules">
-          <li>Mỗi khách hàng được tham gia 1 lượt chơi/ngày</li>
-          <li>Thời gian diễn ra từ ngày 20/07 - 20/08/2025</li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, in porro officiis ratione quo autem repellendus quasi ipsa incidunt rerum, reiciendis nobis? Ea molestias est officia enim sint. Id, hic?</li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, in porro officiis ratione quo autem repellendus quasi ipsa incidunt rerum, reiciendis nobis? Ea molestias est officia enim sint. Id, hic?5</li>
           <li>Mỗi khách hàng chỉ được trúng thưởng 1 lần duy nhất</li>
           <li>Giải thưởng không có giá trị quy đổi thành tiền mặt</li>
           <li>BTC có quyền từ chối trao thưởng nếu phát hiện gian lận</li>
         </ol>
-
-       <div className="modal-footer-button py-4">
-            <Button 
-              variant="primary" 
-              className="w-100"
-              size="lg"
-              onClick={onStart}
-            >
-              Bắt đầu
-            </Button>
-        </div>
-        </div>
+</div>
+        
       </Modal.Body>
+      <Modal.Footer 
+          className="border-0 px-4"
+          style={{
+            position: 'sticky',
+            bottom: 0,
+            backgroundColor: 'white',
+            zIndex: 1000
+          }}
+        >
+          <Button 
+            variant="primary" 
+            className="w-100"
+            size="lg"
+            onClick={onStart}
+          >
+            Bắt đầu chơi
+          </Button>
+        </Modal.Footer>
     </Modal>
   );
 }
