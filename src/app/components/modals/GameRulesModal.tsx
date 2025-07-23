@@ -21,9 +21,13 @@ export default function GameRulesModal({ show, onHide, onStart }: GameRulesModal
           <Image
             src="/images/background-minigame.png"
             alt="Gift Box"
-            width={450}
-            height={200}
-            className="mb-3"
+            style={{
+              width: '100%',
+              maxWidth: '450px',
+              height: 'auto',
+              objectFit: 'contain'
+            }}
+            className="mb-3 img-fluid"
           />
           <h5 className="fw-bold mb-3">Hướng dẫn tham gia</h5>
         </div>

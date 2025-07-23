@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import './game.css';
 import PhotoResultModal from './PhotoResultModal';
+import './game.css';
 
 interface Option {
   id: string;
@@ -48,9 +48,15 @@ interface GameQuestionModalProps {
   show: boolean;
   onHide: () => void;
   onComplete: () => void;
+  userInfo?: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+  };
 }
 
-export default function GameQuestionModal({ show, onHide, onComplete }: GameQuestionModalProps) {
+export default function GameQuestionModal({ show, onHide, onComplete, userInfo }: GameQuestionModalProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
@@ -64,6 +70,16 @@ export default function GameQuestionModal({ show, onHide, onComplete }: GameQues
   const [confirmFace, setConfirmFace] = useState(false);
   const [showPhotoResult, setShowPhotoResult] = useState(false);
 
+  // Tạo tên đầy đủ từ userInfo
+  const getUserName = () => {
+    if (userInfo?.lastName) {
+      return userInfo.lastName;
+    } else if (userInfo?.firstName) {
+      return userInfo.firstName;
+    }
+    return "bạn";
+  };
+
   const resetGame = () => {
     setCurrentQuestion(0);
     setSelectedOption(null);
@@ -72,23 +88,21 @@ export default function GameQuestionModal({ show, onHide, onComplete }: GameQues
     setImagePreview(null);
     setImageValidation({ isValid: false, message: '', type: 'info' });
     setConfirmFace(false);
+    setShowPhotoResult(false);
   };
 
   const validateImage = (file: File): Promise<{isValid: boolean, message: string, type: 'success' | 'error' | 'info'}> => {
     return new Promise((resolve) => {
-      // Check file size (max 5MB)
       if (file.size > 5 * 1024 * 1024) {
         resolve({ isValid: false, message: '❌ File quá lớn. Vui lòng chọn ảnh dưới 5MB', type: 'error' });
         return;
       }
 
-      // Check file type
       if (!file.type.startsWith('image/')) {
         resolve({ isValid: false, message: '❌ Vui lòng chọn file ảnh hợp lệ', type: 'error' });
         return;
       }
 
-      // Check image dimensions
       const img = new Image();
       img.onload = () => {
         if (img.width < 200 || img.height < 200) {
@@ -112,20 +126,17 @@ export default function GameQuestionModal({ show, onHide, onComplete }: GameQues
     const file = event.target.files?.[0];
     if (!file) return;
 
-    // Reset states
     setUploadedImage(null);
     setImagePreview(null);
     setConfirmFace(false);
     setImageValidation({ isValid: false, message: 'Đang kiểm tra ảnh...', type: 'info' });
 
-    // Create preview first
     const reader = new FileReader();
     reader.onload = (e) => {
       setImagePreview(e.target?.result as string);
     };
     reader.readAsDataURL(file);
 
-    // Validate image
     const validation = await validateImage(file);
     setImageValidation(validation);
 
@@ -144,11 +155,8 @@ export default function GameQuestionModal({ show, onHide, onComplete }: GameQues
     if (currentQ.type === 'upload') {
       if (!uploadedImage || !confirmFace) return;
       
-      setShowCorrectAnswer(true);
-      setTimeout(() => {
-        setShowCorrectAnswer(false);
-        setShowPhotoResult(true);
-      }, 3000);
+      // Bỏ qua thông báo, nhảy thẳng sang PhotoResultModal
+      setShowPhotoResult(true);
       return;
     }
 
@@ -176,11 +184,6 @@ export default function GameQuestionModal({ show, onHide, onComplete }: GameQues
     }
   };
 
-  const handleModalHide = () => {
-    resetGame();
-    onHide();
-  };
-
   const handlePhotoResultClose = () => {
     setShowPhotoResult(false);
     setUploadedImage(null);
@@ -196,6 +199,16 @@ export default function GameQuestionModal({ show, onHide, onComplete }: GameQues
     }
   };
 
+  const handleBackToUpload = () => {
+    setShowPhotoResult(false);
+    // Giữ nguyên dữ liệu upload để user có thể chỉnh sửa
+  };
+
+  const handleModalHide = () => {
+    resetGame();
+    onHide();
+  };
+
   const currentQ = questions[currentQuestion];
   const canContinue = currentQ.type === 'upload' 
     ? uploadedImage && imageValidation.isValid && confirmFace 
@@ -203,12 +216,13 @@ export default function GameQuestionModal({ show, onHide, onComplete }: GameQues
 
   return (
     <>
-      <Modal show={show} onHide={handleModalHide} centered className="game-modal">
-        {/* Result Overlay */}
-        {showCorrectAnswer && (
+      {/* Game Question Modal - chỉ hiện khi không show PhotoResult */}
+      <Modal show={show && !showPhotoResult} onHide={handleModalHide} centered className="game-modal">
+        {/* Result Overlay - chỉ cho quiz, không cho upload */}
+        {showCorrectAnswer && currentQ.type === 'quiz' && (
           <div className="result-overlay position-fixed d-flex flex-column align-items-center justify-content-center" style={{ zIndex: 1 }}>
             <div className="result-content text-center">
-              {currentQ.type === 'upload' || (selectedOption && questions[currentQuestion].options.find(opt => opt.id === selectedOption)?.isCorrect) ? (
+              {selectedOption && questions[currentQuestion].options.find(opt => opt.id === selectedOption)?.isCorrect ? (
                 <>
                   <div className="result-emoji mb-3">
                     <img src="/images/star-struck.png" alt="Happy" width={80} height={80} />
@@ -216,10 +230,8 @@ export default function GameQuestionModal({ show, onHide, onComplete }: GameQues
                   <div className="result-text text-white">
                     <img src="/images/yeah.png" alt="Success" width={60} height={60} />
                     <div className="result-subtitle">
-                      {currentQ.type === 'upload' 
-                        ? 'Upload thành công!\nCảm ơn bạn đã tham gia!' 
-                        : 'Câu trả lời chính xác.\nTiếp tục nào!'
-                    }
+                      Câu trả lời chính xác.<br />
+                      Tiếp tục nào!
                     </div>
                   </div>
                 </>
@@ -299,12 +311,10 @@ export default function GameQuestionModal({ show, onHide, onComplete }: GameQues
               </div>
             </div>
 
-            {/* Question */}
             <div className="question-text text-center mb-4">
               {currentQ.text}
             </div>
 
-            {/* Content based on question type */}
             {currentQ.type === 'upload' ? (
               <div className="upload-section">
                 <div className="upload-area text-center p-4 mb-3" 
@@ -332,7 +342,6 @@ export default function GameQuestionModal({ show, onHide, onComplete }: GameQues
                         }}
                       />
                       
-                      {/* Validation status */}
                       {imageValidation.message && (
                         <p className="mb-2" style={{ 
                           color: imageValidation.type === 'success' ? '#28a745' : 
@@ -383,7 +392,6 @@ export default function GameQuestionModal({ show, onHide, onComplete }: GameQues
                   style={{ display: 'none' }}
                 />
 
-                {/* Face confirmation checkbox */}
                 {uploadedImage && imageValidation.isValid && (
                   <div className="face-confirmation mb-3 p-3" style={{
                     backgroundColor: '#f8f9fa',
@@ -415,7 +423,6 @@ export default function GameQuestionModal({ show, onHide, onComplete }: GameQues
                 </div>
               </div>
             ) : (
-              // Quiz Options
               <div className="d-flex flex-column gap-3">
                 {currentQ.options.map((option) => (
                   <button
@@ -545,7 +552,8 @@ export default function GameQuestionModal({ show, onHide, onComplete }: GameQues
         show={showPhotoResult}
         onHide={handlePhotoResultClose}
         uploadedImageUrl={imagePreview}
-        userName="Bạn" // Bạn có thể truyền tên thật từ UserFormModal
+        userName={getUserName()}
+        onBackToUpload={handleBackToUpload}
       />
     </>
   );
