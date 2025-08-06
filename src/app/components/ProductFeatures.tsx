@@ -16,8 +16,8 @@ export default function ProductFeatures() {
           Redmi Note <span style={{color:"red"}}>13</span> Pro+ 5G
         </h2>
        <div className="feature-wrapper" style={{ 
-                    width: '85%',
-                    maxWidth: '100%',
+                    width: '100%',
+                    maxWidth: '80%',
                     margin: '0 auto 10px auto'
                     
                 }}>

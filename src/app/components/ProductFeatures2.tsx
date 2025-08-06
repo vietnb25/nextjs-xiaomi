@@ -4,12 +4,6 @@ import { Container, Row, Col } from 'react-bootstrap';
 export default function ProductFeatures2() {
     return (
         <>
-            {/* Invisible anchor for smooth scroll with offset */}
-            <div id='product-features-anchor' style={{
-                position: 'relative',
-                top: '-100px',
-                visibility: 'hidden'
-            }}></div>
             
             <div id='product-features'
                 style={{
@@ -26,8 +20,8 @@ export default function ProductFeatures2() {
                 </Row>
                 {/* Hàng 1 - Responsive wrapper */}
                 <div className="feature-wrapper" style={{ 
-                    width: '85%',
-                    maxWidth: '100%',
+                    width: '100%',
+                    maxWidth: '80%',
                     margin: '0 auto 10px auto'
                 }}>
                     <Row className="g-3" style={{ marginBottom: '20px' }}>
@@ -128,7 +122,7 @@ export default function ProductFeatures2() {
                 {/* Hàng thứ hai - Responsive wrapper */}
                 <div className="feature-wrapper" style={{ 
                     width: '85%',
-                    maxWidth: '100%',
+                    maxWidth: '80%',
                     margin: '0 auto 10px auto'
                 }}>
                     <Row className="g-3" style={{ marginBottom: '20px' }}>
