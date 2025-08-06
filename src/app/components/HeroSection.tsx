@@ -5,7 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 export default function HeroSection() {
     return (
         <div style={{ backgroundImage: "url('/Background.png')", backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', height: 'auto', overflow: 'hidden' }}>
-            <Container fluid className="pt-5 px-2 px-md-4 mt-2">
+            <Container fluid className="pt-5 px-2 px-md-4 mt-5">
                 <Row className="align-items-center justify-content-center flex-column-reverse flex-md-row">
                     <Col
                         md={6}
