@@ -489,6 +489,12 @@ a {
     max-width: 70% !important;
     margin: 0 auto 5px auto;
   }
+
+    #product-info .feature-wrapper {
+    width: 70% !important;
+    max-width: 70% !important;
+    margin: 0 auto 5px auto;
+  }
   
   #product-features h1 {
     font-size: 1.2rem;

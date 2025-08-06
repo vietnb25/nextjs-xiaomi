@@ -12,7 +12,7 @@ export default function ProductFeatures() {
         scrollMarginTop: '60px'
       }}>
       <Container>
-        <h2 className="text-center display-4 fw-bold mb-5" style={{ color: '#fff' }}>
+        <h2 className="text-center display-4 fw-bold mb-5" style={{ color: '#fff', fontSize: '2rem', fontWeight: 'bold' }}>
           Redmi Note <span style={{color:"red"}}>13</span> Pro+ 5G
         </h2>
        <div className="feature-wrapper" style={{ 

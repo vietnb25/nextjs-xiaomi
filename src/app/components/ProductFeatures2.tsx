@@ -16,7 +16,7 @@ export default function ProductFeatures2() {
                 }}>
             <Container className="my-3">
               <Row className="text-center mb-4">
-                     <h1>Redmi Note  <span style={{ color: 'red', fontWeight: 'bold' }}> 13 </span> Pro+ 5G</h1>
+                     <h1 style={{fontSize: '2rem', fontWeight: 'bold'}}>Redmi Note  <span style={{ color: 'red', fontWeight: 'bold' }}> 13 </span> Pro+ 5G</h1>
                 </Row>
                 {/* Hàng 1 - Responsive wrapper */}
                 <div className="feature-wrapper" style={{ 
@@ -113,11 +113,7 @@ export default function ProductFeatures2() {
                 </div>
 
                 <Row className="text-center mb-4">
-                    <h1>
-                        Redmi Note
-                        <span style={{ color: 'red', fontWeight: 'bold' }}> 13 </span>
-
-                    </h1>
+                     <h1 style={{fontSize: '2rem', fontWeight: 'bold'}}>Redmi Note  <span style={{ color: 'red', fontWeight: 'bold' }}> 13 </span> Pro+ 5G</h1>
                 </Row>
                 {/* Hàng thứ hai - Responsive wrapper */}
                 <div className="feature-wrapper" style={{ 
