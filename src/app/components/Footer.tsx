@@ -8,8 +8,8 @@ export default function Footer() {
     <footer className="bg-dark text-light py-5">
       <Container>
         <Row className="gy-4">
-          {/* Column 1 */}
-          <Col md={3}>
+          {/* Left Column on Mobile - Tìm hiểu thêm & Hỗ trợ */}
+          <Col md={3} xs={6}>
             <h5 className="text-uppercase mb-4">Tìm hiểu thêm</h5>
             <ul className="list-unstyled">
               <li className="mb-2">
@@ -24,8 +24,8 @@ export default function Footer() {
             </ul>
           </Col>
 
-          {/* Column 2 */}
-          <Col md={3}>
+          {/* Right Column on Mobile - Combined Hỗ trợ */}
+          <Col md={3} xs={6}>
             <h5 className="text-uppercase mb-4">Hỗ trợ</h5>
             <ul className="list-unstyled">
               <li className="mb-2">
@@ -46,8 +46,8 @@ export default function Footer() {
             </ul>
           </Col>
 
-          {/* Column 3 */}
-          <Col md={3}>
+          {/* Left Column Second Row on Mobile - Giới thiệu */}
+          <Col md={3} xs={6}>
             <h5 className="text-uppercase mb-4">Giới thiệu</h5>
             <ul className="list-unstyled">
               <li className="mb-2">
@@ -62,28 +62,31 @@ export default function Footer() {
             </ul>
           </Col>
 
-          {/* Column 4 */}
-          <Col md={3}>
+          {/* Right Column Second Row on Mobile - Liên hệ */}
+          <Col md={3} xs={6}>
             <h5 className="text-uppercase mb-4">Liên hệ</h5>
-            <div className="mb-4">
-              <h3 className="h4 mb-3">1800400168</h3>
-              <h4 className="h5 mb-4">THEO DÕI MI</h4>
+            <div className="mb-3">
+              <h3 className="h5 mb-2">1800400168</h3>
+              <p className="small mb-3">Thứ 2 đến thứ 6</p>
             </div>
-            <div className="d-flex gap-3 mb-4">
-              <Link href="#" className="text-light">
-                <Image src="/images/facebook-icon.svg" alt="Facebook" width={24} height={24} />
-              </Link>
-              <Link href="#" className="text-light">
-                <Image src="/images/tiktok-icon.svg" alt="TikTok" width={24} height={24} />
-              </Link>
-              <Link href="#" className="text-light">
-                <Image src="/images/instagram-icon.svg" alt="Instagram" width={24} height={24} />
-              </Link>
-              <Link href="#" className="text-light">
-                <Image src="/images/youtube-icon.svg" alt="YouTube" width={24} height={24} />
-              </Link>
+            <div className="mb-3">
+              <h4 className="h6 mb-3">THEO DÕI MI</h4>
+              <div className="d-flex gap-2 mb-3">
+                <Link href="#" className="text-light">
+                  <Image src="/images/facebook-icon.svg" alt="Facebook" width={20} height={20} />
+                </Link>
+                <Link href="#" className="text-light">
+                  <Image src="/images/tiktok-icon.svg" alt="TikTok" width={20} height={20} />
+                </Link>
+                <Link href="#" className="text-light">
+                  <Image src="/images/instagram-icon.svg" alt="Instagram" width={20} height={20} />
+                </Link>
+                <Link href="#" className="text-light">
+                  <Image src="/images/youtube-icon.svg" alt="YouTube" width={20} height={20} />
+                </Link>
+              </div>
             </div>
-            <Button variant="primary">Email Support</Button>
+            <Button variant="primary" size="sm">Email Support</Button>
           </Col>
         </Row>
 

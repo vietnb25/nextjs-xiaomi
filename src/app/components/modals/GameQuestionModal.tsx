@@ -217,10 +217,19 @@ export default function GameQuestionModal({ show, onHide, onComplete, userInfo }
   return (
     <>
       {/* Game Question Modal - chỉ hiện khi không show PhotoResult */}
-      <Modal show={show && !showPhotoResult} onHide={handleModalHide} centered className="game-modal">
+      <Modal 
+        show={show && !showPhotoResult} 
+        onHide={handleModalHide} 
+        centered 
+        className="game-modal"
+        style={{ 
+          maxHeight: '100vh',
+          overflow: 'hidden'
+        }}
+      >
         {/* Result Overlay - chỉ cho quiz, không cho upload */}
         {showCorrectAnswer && currentQ.type === 'quiz' && (
-          <div className="result-overlay position-fixed d-flex flex-column align-items-center justify-content-center" style={{ zIndex: 1 }}>
+          <div className="result-overlay position-fixed d-flex flex-column align-items-center justify-content-center" style={{ zIndex: 2000 }}>
             <div className="result-content text-center">
               {selectedOption && questions[currentQuestion].options.find(opt => opt.id === selectedOption)?.isCorrect ? (
                 <>
@@ -256,7 +265,11 @@ export default function GameQuestionModal({ show, onHide, onComplete, userInfo }
         <Modal.Header closeButton className="border-0" style={{ position: 'relative', zIndex: 1050 }}>
           <Modal.Title as="h4" className="w-100 text-center"></Modal.Title>
         </Modal.Header>
-        <Modal.Body className="px-4">
+        <Modal.Body className="px-4" style={{ 
+          maxHeight: 'calc(100vh - 200px)', 
+          overflowY: 'auto',
+          padding: '1rem'
+        }}>
           <div className="position-relative">
             {/* Progress */}
             <div className="challenge-progress text-center mb-4">
@@ -323,10 +336,12 @@ export default function GameQuestionModal({ show, onHide, onComplete, userInfo }
                     borderRadius: '12px',
                     backgroundColor: '#f8f9fa',
                     minHeight: '200px',
+                    maxHeight: '300px',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
+                    overflow: 'hidden'
                   }}
                 >
                   {imagePreview ? (
@@ -336,9 +351,12 @@ export default function GameQuestionModal({ show, onHide, onComplete, userInfo }
                         alt="Preview" 
                         style={{
                           maxWidth: '100%',
-                          maxHeight: '150px',
+                          maxHeight: '120px',
+                          width: 'auto',
+                          height: 'auto',
                           borderRadius: '8px',
-                          marginBottom: '10px'
+                          marginBottom: '10px',
+                          objectFit: 'contain'
                         }}
                       />
                       
@@ -528,7 +546,17 @@ export default function GameQuestionModal({ show, onHide, onComplete, userInfo }
           </div>
         </Modal.Body>
         
-        <Modal.Footer className="border-0 justify-content-center">
+        <Modal.Footer 
+          className={`border-0 justify-content-center ${showCorrectAnswer ? 'd-none' : ''}`}
+          style={{
+            position: 'sticky',
+            bottom: 0,
+            backgroundColor: 'white',
+            zIndex: 1000,
+            borderTop: '1px solid #dee2e6',
+            padding: '1rem'
+          }}
+        >
           <button 
             className="btn btn-primary px-4 py-2"
             onClick={handleContinue}

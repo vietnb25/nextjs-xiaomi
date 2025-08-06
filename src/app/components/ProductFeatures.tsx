@@ -5,17 +5,27 @@ import Image from 'next/image';
 
 export default function ProductFeatures() {
   return (
-    <section className="py-5 bg-light" id="product-info" style={{backgroundImage: "url('/images/Background1.png')", backgroundSize: 'cover'}}>
+    <section className="py-5 bg-light" id="product-info" 
+      style={{
+        backgroundImage: "url('/images/Background1.png')",
+        backgroundSize: 'cover',
+        scrollMarginTop: '60px'
+      }}>
       <Container>
         <h2 className="text-center display-4 fw-bold mb-5" style={{ color: '#fff' }}>
           Redmi Note <span style={{color:"red"}}>13</span> Pro+ 5G
         </h2>
-
+       <div className="feature-wrapper" style={{ 
+                    width: '85%',
+                    maxWidth: '100%',
+                    margin: '0 auto 10px auto'
+                    
+                }}>
         <Row className="g-4">
           {/* Top Row - 2 Features */}
           <Col md={6}>
             <div 
-              className="feature-card h-100"
+              className="feature-card"
               style={{
                 background: 'transparent',
                 borderRadius: '20px',
@@ -27,14 +37,21 @@ export default function ProductFeatures() {
               <Image
                 src="/images/1.png"
                 alt="AMOLED Display"
-                width={460}
-                height={460}
+                width={800}
+                height={800}
+                quality={100}
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="img-fluid"
                 style={{
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
-                  borderRadius: '20px'
+                  borderRadius: '20px',
+                  imageRendering: 'crisp-edges',
+                  filter: 'contrast(1.1) saturate(1.1)',
+                  backfaceVisibility: 'hidden',
+                  transform: 'translateZ(0)'
                 }}
               />
             </div>
@@ -54,14 +71,21 @@ export default function ProductFeatures() {
               <Image
                 src="/images/2.png"
                 alt="200MP Camera"
-                width={460}
-                height={460}
+                width={800}
+                height={800}
+                quality={100}
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="img-fluid"
                 style={{
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
-                  borderRadius: '20px'
+                  borderRadius: '20px',
+                  imageRendering: 'crisp-edges',
+                  filter: 'contrast(1.1) saturate(1.1)',
+                  backfaceVisibility: 'hidden',
+                  transform: 'translateZ(0)'
                 }}
               />
             </div>
@@ -82,14 +106,20 @@ export default function ProductFeatures() {
               <Image
                 src="/images/3.png"
                 alt="Design Feature"
-                width={360}
-                height={360}
+                width={600}
+                height={600}
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="img-fluid"
                 style={{
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
-                  borderRadius: '20px'
+                  borderRadius: '20px',
+                  imageRendering: 'crisp-edges',
+                  filter: 'contrast(1.1) saturate(1.1)',
+                  backfaceVisibility: 'hidden',
+                  transform: 'translateZ(0)'
                 }}
               />
             </div>
@@ -109,14 +139,20 @@ export default function ProductFeatures() {
               <Image
                 src="/images/4.png"
                 alt="Waterproof Feature"
-                width={360}
-                height={360}
+                width={600}
+                height={600}
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="img-fluid"
                 style={{
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
-                  borderRadius: '20px'
+                  borderRadius: '20px',
+                  imageRendering: 'crisp-edges',
+                  filter: 'contrast(1.1) saturate(1.1)',
+                  backfaceVisibility: 'hidden',
+                  transform: 'translateZ(0)'
                 }}
               />
             </div>
@@ -136,19 +172,26 @@ export default function ProductFeatures() {
               <Image
                 src="/images/5.png"
                 alt="Fast Charging"
-                width={360}
-                height={360}
+                width={600}
+                height={600}
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="img-fluid"
                 style={{
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
-                  borderRadius: '20px'
+                  borderRadius: '20px',
+                  imageRendering: 'crisp-edges',
+                  filter: 'contrast(1.1) saturate(1.1)',
+                  backfaceVisibility: 'hidden',
+                  transform: 'translateZ(0)'
                 }}
               />
             </div>
           </Col>
         </Row>
+        </div>
       </Container>
     </section>
   );

@@ -18,7 +18,7 @@ export default function StoresSection() {
   ];
 
   return (
-    <section id="stores" className="py-5">
+    <section id="stores" className="py-5" style={{scrollMarginTop: '60px'}}>
       <Container>
         {/* Retail Stores */}
         <div className="mb-5">

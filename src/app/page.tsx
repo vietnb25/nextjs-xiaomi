@@ -6,6 +6,7 @@ import PromotionSection from './components/PromotionSection'
 import Footer from './components/Footer'
 import ProductFeatures2 from './components/ProductFeatures2'
 import StoresSection from './components/StoresSection'
+import ScrollToTop from './components/ScrollToTop'
 
 export default function Home() {
   return (
@@ -15,12 +16,12 @@ export default function Home() {
         <HeroSection />
         <ProductFeatures />
         <ProductFeatures2 />
-        {/* Uncomment the line above to use the alternative ProductFeatures component */}
         <GamingSection />
         <PromotionSection />
         <StoresSection />
       </main>
       <Footer />
+      <ScrollToTop />
     </>
   )
 }

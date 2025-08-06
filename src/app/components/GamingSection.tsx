@@ -43,14 +43,15 @@ export default function GamingSection() {
           backgroundImage: "url('/images/game-background.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          minHeight: '600px'
+          minHeight: '600px',
+          scrollMarginTop: '30px' // Ensure proper scroll offset for navigation links
         }}>
         <Container>
           <Row className="align-items-center">
-            <Col lg={6}>
+            {/* Desktop/Tablet Layout */}
+            <Col lg={6} className="d-none d-lg-block">
               <div className="bg-white bg-opacity-40 px-4 py-2 rounded-pill d-inline-block mb-4">
-                
-                  <Button variant="outline-info"><span className="text-primary fw-semibold gradient-text">Minigame</span></Button>
+                <Button variant="outline-info"><span className="text-primary fw-semibold gradient-text">Minigame</span></Button>
               </div>
 
               <h2 className="display-5 fw-bold mb-4">
@@ -94,7 +95,75 @@ export default function GamingSection() {
               </div>
             </Col>
 
-            <Col lg={6}>
+            {/* Mobile Layout - Single Column Centered */}
+            <Col xs={12} className="d-lg-none text-center">
+              <div className="mb-3">
+                <Button variant="outline-info" className="rounded-pill px-3 py-1">
+                  <span className="text-primary fw-semibold gradient-text small">Minigame</span>
+                </Button>
+              </div>
+
+              <h2 className="fw-bold mb-4" style={{ fontSize: '1.5rem', lineHeight: '1.3' }}>
+                Khuấy đảo <span className='gradient-text'>Minigame</span><br />
+                Săn ngay quà khủng<br />
+                cùng <span className='gradient-text'>Xiaomi</span>
+              </h2>
+
+              <div className="mb-4">
+                <p className="mb-3" style={{ fontSize: '1rem' }}>Thời gian còn lại</p>
+
+                <div className="d-flex justify-content-center gap-2 mb-4">
+                  {[
+                    { value: '13', label: 'Ngày' },
+                    { value: '13', label: 'Giờ' },
+                    { value: '13', label: 'Phút' },
+                    { value: '13', label: 'Giây' }
+                  ].map((item) => (
+                    <div key={item.label} className="text-center">
+                      <div className="glassmorphism p-1 mb-1 d-flex align-items-center justify-content-center" 
+                           style={{ width: '40px', height: '40px', fontSize: '1.1rem' }}>
+                        <span className="fw-bold text-primary">{item.value}</span>
+                      </div>
+                      <span className="gradient-text small">{item.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="d-flex flex-column gap-3 align-items-center mb-4">
+                <Button 
+                  variant="primary" 
+                  className="w-75 py-2 fw-semibold"
+                  style={{ maxWidth: '280px', fontSize: '1.1rem' }}
+                  onClick={handleShowRules}
+                >
+                  Chơi Ngay
+                </Button>
+                <Button 
+                  variant="link" 
+                  className="text-decoration-none d-flex align-items-center gap-2 p-0"
+                  style={{ color: '#6c757d' }}
+                  onClick={handleShowRules}
+                >
+                  <span style={{ fontSize: '1rem' }}>▶ Xem hướng dẫn</span>
+                </Button>
+              </div>
+
+              {/* Mobile Gift Image */}
+              <div className="mt-4">
+                <Image
+                  src="/images/gift-image.png"
+                  alt="Gift"
+                  width={300}
+                  height={312}
+                  className="img-fluid"
+                  style={{ maxWidth: '80%' }}
+                />
+              </div>
+            </Col>
+
+            {/* Desktop Gift Image */}
+            <Col lg={6} className="d-none d-lg-block">
               <div className="position-relative mt-5 mt-lg-0">
                 <Image
                   src="/images/game-light.png"

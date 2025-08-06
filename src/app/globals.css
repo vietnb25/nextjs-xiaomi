@@ -422,3 +422,170 @@ a {
         transform: translateY(0);
     }
 }
+
+/* Scroll offset for navigation links */
+#product-info,
+#product-features,
+#thele,
+#hethong {
+  scroll-margin-top: 20px;
+}
+
+/* ProductFeatures2 Responsive Optimization */
+#product-features {
+  padding: 40px 0;
+}
+
+#product-features .container {
+  margin: 0 auto;
+}
+
+#product-features .feature-wrapper {
+  width: 85%;
+  max-width: 100%;
+  margin: 0 auto 10px auto;
+}
+
+#product-features h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+/* Tablet optimization */
+@media (max-width: 768px) {
+  #product-features {
+    padding: 30px 0;
+  }
+  
+  #product-features .feature-wrapper {
+    width: 90%;
+    margin: 0 auto 8px auto;
+  }
+  
+  #product-features h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    margin-top: 8px;
+  }
+  
+  #product-features .row {
+    margin-bottom: 15px !important;
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 576px) {
+  #product-features {
+    padding: 20px 0;
+  }
+  
+  #product-features .container {
+    padding: 0 10px;
+  }
+  
+  #product-features .feature-wrapper {
+    width: 95%;
+    margin: 0 auto 5px auto;
+  }
+  
+  #product-features h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    line-height: 1.3;
+  }
+  
+  #product-features .row {
+    --bs-gutter-x: 0.5rem;
+    margin-bottom: 10px !important;
+  }
+  
+  #product-features .image-card {
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+  }
+}
+
+/* Footer Mobile Responsive */
+@media (max-width: 576px) {
+  footer {
+    padding: 2rem 0 !important;
+  }
+  
+  footer .container {
+    padding: 0 15px;
+  }
+  
+  footer h5 {
+    font-size: 0.9rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  footer ul li {
+    margin-bottom: 0.5rem !important;
+  }
+  
+  footer ul li a {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  
+  footer .h5 {
+    font-size: 1rem !important;
+  }
+  
+  footer .h6 {
+    font-size: 0.8rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  footer .small {
+    font-size: 0.75rem !important;
+  }
+  
+  footer .d-flex.gap-2 {
+    gap: 0.5rem !important;
+  }
+  
+  footer .btn-sm {
+    font-size: 0.75rem !important;
+    padding: 0.25rem 0.75rem !important;
+  }
+}
+
+/* Gaming Section Mobile Responsive */
+@media (max-width: 991px) {
+  #gaming {
+    min-height: auto !important;
+    padding: 3rem 0 !important;
+  }
+  
+  #gaming .container {
+    padding: 0 20px;
+  }
+  
+  #gaming h2 {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  #gaming .glassmorphism {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  }
+  
+  #gaming .btn-primary {
+    background: linear-gradient(135deg, #FF6900, #FF8533) !important;
+    border: none !important;
+    border-radius: 25px !important;
+    font-weight: 600 !important;
+    box-shadow: 0 4px 15px rgba(255, 105, 0, 0.3) !important;
+  }
+  
+  #gaming .btn-link {
+    font-size: 0.9rem !important;
+  }
+}

@@ -50,7 +50,7 @@ export default function CongratulationsModal({ show, onHide, onBackHome }: Congr
           >
             <button
               type="button"
-              className="btn p-0 d-flex align-items-center"
+              className="btn p-0 d-flex align-items-center btn-close"
               onClick={onHide}
               style={{
                 backgroundColor: 'transparent',
@@ -122,7 +122,7 @@ export default function CongratulationsModal({ show, onHide, onBackHome }: Congr
             {/* Content with padding */}
             <div className="px-4">
               {/* Congratulations Text */}
-              <div className="congratulations-section mb-4">
+              <div className="congratulations-section mb-4 gift-section">
                 <div className="celebration-emoji mb-3">
                   🎉🎊
                 </div>
@@ -179,7 +179,7 @@ export default function CongratulationsModal({ show, onHide, onBackHome }: Congr
           </div>
 
           {/* Bottom Section */}
-          <div className="bottom-section w-100 p-4">
+          <div className="bottom-section w-100 p-4 action-buttons">
             {/* Back Home Button */}
             <button
               className="btn w-100 mb-3"

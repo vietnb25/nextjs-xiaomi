@@ -3,21 +3,34 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 export default function ProductFeatures2() {
     return (
-        <div id='product-features'
-            style={{
-                backgroundImage: "url('/images/Background3.png')",
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                padding: '40px 0',
-                height: 'auto'
-            }}>
-            <Container className="my-5">
-                <Row className="text-center mb-4">
-                    <h2>Redmi Note  <span style={{ color: 'red', fontWeight: 'bold' }}> 13 </span> Pro+ 5G</h2>
+        <>
+            {/* Invisible anchor for smooth scroll with offset */}
+            <div id='product-features-anchor' style={{
+                position: 'relative',
+                top: '-100px',
+                visibility: 'hidden'
+            }}></div>
+            
+            <div id='product-features'
+                style={{
+                    backgroundImage: "url('/images/Background3.png')",
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    padding: '40px 0',
+                    height: 'auto',
+                
+                }}>
+            <Container className="my-3">
+              <Row className="text-center mb-4">
+                     <h1>Redmi Note  <span style={{ color: 'red', fontWeight: 'bold' }}> 13 </span> Pro+ 5G</h1>
                 </Row>
-
-                {/* Hàng 1 */}
-                <Row className="g-4" style={{ marginBottom: '30px' }}>
+                {/* Hàng 1 - Responsive wrapper */}
+                <div className="feature-wrapper" style={{ 
+                    width: '85%',
+                    maxWidth: '100%',
+                    margin: '0 auto 10px auto'
+                }}>
+                    <Row className="g-3" style={{ marginBottom: '20px' }}>
                     {/* Triple Camera 108MP */}
                     <Col lg={4} md={6}>
                         <div className="image-card h-100" style={{
@@ -103,16 +116,22 @@ export default function ProductFeatures2() {
                         </Row>
                     </Col>
                 </Row>
+                </div>
 
                 <Row className="text-center mb-4">
-                    <h2>
+                    <h1>
                         Redmi Note
                         <span style={{ color: 'red', fontWeight: 'bold' }}> 13 </span>
 
-                    </h2>
+                    </h1>
                 </Row>
-                {/* Hàng thứ hai */}
-                <Row className="g-4" style={{ marginBottom: '30px' }}>
+                {/* Hàng thứ hai - Responsive wrapper */}
+                <div className="feature-wrapper" style={{ 
+                    width: '85%',
+                    maxWidth: '100%',
+                    margin: '0 auto 10px auto'
+                }}>
+                    <Row className="g-3" style={{ marginBottom: '20px' }}>
                     {/* Pin 5100mAh */}
                     <Col lg={4} md={6}>
                         <div className="image-card h-100" style={{
@@ -198,8 +217,10 @@ export default function ProductFeatures2() {
                         </Row>
                     </Col>
                 </Row>
+                </div>
             </Container>
         </div>
+        </>
 
     );
 }

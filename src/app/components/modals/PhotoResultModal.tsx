@@ -95,7 +95,7 @@ export default function PhotoResultModal({ show, onHide, uploadedImageUrl, userN
           >
             <button
               type="button"
-              className="btn p-0 d-flex align-items-center"
+              className="btn p-0 d-flex align-items-center back-to-upload-btn"
               onClick={handleBackToUpload}
               style={{
                 backgroundColor: 'transparent',
